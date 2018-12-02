@@ -2,7 +2,7 @@ Module.register("MMM-AoC", {
 
 	defaults: {
 		year: 2018, // What AoC year.
-		updateInterval: 60000 // How often we would call the API's in milliseconds. (Default 60 seconds)
+		updateInterval: 30 * 60000 // How often we would call the API's in milliseconds. (Default 30 minutes)
 	},
 
 	getStyles: function () {
@@ -49,7 +49,9 @@ Module.register("MMM-AoC", {
 		row.innerHTML += ("" + data.score).padStart(5) + " ";
 
 		// Then stars
-		const today = (new Date()).getDate();
+		const now = new Date();
+		const curHour = now.getHours();
+		const today = now.getDate();
 		for (let day = 0; day < 25; day++) {
 			let starClassName = "locked";
 			const dayStars = data.days[day + 1];
@@ -60,7 +62,7 @@ Module.register("MMM-AoC", {
 			} else {
 
 				// Check previous if we have done it
-				if (data.days[day] && day < today) {
+				if (data.days[day] && day < today && curHour > 5) {
 					starClassName = "unlocked";
 				}
 			}
@@ -105,13 +107,15 @@ Module.register("MMM-AoC", {
 				days.appendChild(padSpan);
 			}
 
-			const today = (new Date()).getDate();
+			const now = new Date();
+			const today = now.getDate();
+			const curHour = now.getHours();
 			for(let day = 1; day <= 25; day++) {
 				const lower = day % 10;
 				const upper = Math.floor(day / 10);
 				const daySpan = document.createElement("span");
 				if (today >= day) {
-					daySpan.className = "passed";
+					daySpan.className = (today !== day || curHour > 5) ? "passed" : "";
 				}
 
 				daySpan.innerHTML = (upper > 0 ? upper : "") + "<br>" + lower;
