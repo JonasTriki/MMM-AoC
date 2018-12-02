@@ -19,7 +19,6 @@ const AoC = {
 				}
 			});
 		participants.sort(function(a, b) { return b.score - a.score; });
-		console.log(participants);
 		return participants;
 	},
 

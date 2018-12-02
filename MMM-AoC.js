@@ -114,7 +114,7 @@ Module.register("MMM-AoC", {
 					daySpan.className = "passed";
 				}
 
-				daySpan.innerHTML = upper > 0 ? (upper + "<br>" + lower) : lower;
+				daySpan.innerHTML = (upper > 0 ? upper : "") + "<br>" + lower;
 				days.appendChild(daySpan);
 			}
 			top.append(days);
@@ -139,7 +139,6 @@ Module.register("MMM-AoC", {
 	},
 
 	requestData: function() {
-		console.log(this.translate("LOADING") + ": " + this.name);
 		this.sendSocketNotification("FETCH_DATA", this.config);
 	},
 
