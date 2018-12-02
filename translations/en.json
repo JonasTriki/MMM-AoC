@@ -1,0 +1,4 @@
+{
+  "LOADING": "Loading &hellip;",
+  "FETCH_DATA_ERROR": "Error loading leaderboard; check config for mistakes."
+}

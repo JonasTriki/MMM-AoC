@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+.wrapper {  
+  color: #cccccc;
+  font-family: "Source Code Pro", monospace;
+  font-size: 18pt;
+  line-height: 1em;
+  text-align: left;
+}
+
+.wrapper .banner {
+  height: 3em;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Using styles from https://adventofcode.com/static/style.css?16 */
+
+.privboard-row {
+  white-space: pre;
+}
+.privboard-row .star-count {
+  color: #ffff66;
+}
+.privboard-name {
+  vertical-align: text-bottom;
+}
+.privboard-days > span        { display: inline-block; color: #333333; }
+.privboard-days > span.passed { color: #009900; }
+.privboard-days > a           { display: inline-block; }
+.privboard-star-locked        { visibility: hidden; }
+.privboard-star-unlocked      { color: #333333; }
+.privboard-star-firstonly     { color: #666699; }
+.privboard-star-both          { color: #ffff66; }
+.privboard-delbtn { opacity:.33; }
+.privboard-row:hover .privboard-delbtn { opacity:1; }
